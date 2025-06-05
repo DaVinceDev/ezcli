@@ -1,7 +1,12 @@
 # EzCLI - Create zig cli apps easly 🍃
 
-// TODO: Write readme
+**EzCli** is a library meant for speeding up cli development in zig for **small** applications.
 
-# Status
+## Usage ⚙️
+
+```[COMMAND] [OPTIONS]```
+
+  
+# Status 🧪
 
 **Still under (active) development**
