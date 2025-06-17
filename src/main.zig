@@ -1,27 +1,20 @@
+// usage example
 const std = @import("std");
-const ezcli = @import("ezcli.zig");
+const ezcli = @import("ezcli");
 
-pub fn main() !void {
+pub fn main() void {
     const allocator = std.heap.page_allocator;
+    var sayHiCli = ezcli.App.init("sayHi", "Only says...", allocator);
+    defer sayHiCli.deinit();
 
-    var bananaCli = ezcli.App.init("banana", "Says banana", allocator);
-    defer bananaCli.deinit();
-
-    const args = try std.process.argsAlloc(allocator);
-    defer allocator.free(args);
-
-    try bananaCli.AddCommand("help", help);
-    try bananaCli.AddCommand("banana", say);
-
-    const command = args[1];
-
-    try bananaCli.Run(command);
+    try sayHiCli.AddCommand("hi", sayHi);
+    try sayHiCli.AddCommand("hello", sayHello);
 }
 
-fn say() void {
-    std.debug.print("Banana!", .{});
+fn sayHi() void {
+    std.debug.print("Hi!\n", .{});
 }
 
-fn help() void {
-    std.debug.print("Help.", .{});
+fn sayHello() void {
+    std.debug.print("Hello!!\n", .{});
 }
