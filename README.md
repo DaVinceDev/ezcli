@@ -4,9 +4,11 @@
 
 ## Usage ⚙️
 
-```[COMMAND] [OPTIONS]```
+Check out the main.zig in src/  
 
-  
+
 # Status 🧪
 
 **Still under (active) development**
+
+Working on multiple commands and flags

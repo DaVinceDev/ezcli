@@ -15,9 +15,26 @@ pub fn build(b: *std.Build) void {
     // set a preferred release mode, allowing the user to decide how to optimize.
     const optimize = b.standardOptimizeOption(.{});
 
-    _ = b.addModule("ezcli", .{
+    const lib = b.dependency("ezcli", .{
         .root_source_file = b.path("src/lib.zig"),
         .target = target,
         .optimize = optimize,
     });
+
+    const exe = b.addExecutable(.{
+        .name = "ezcli",
+        .root_source_file = b.path("src/main.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+
+    exe.root_module.addImport("ezcli", lib.module("ezcli"));
+
+    b.installArtifact(exe);
+
+    const run_cmd = b.addRunArtifact(exe);
+
+    const run_step = b.step("run", "Run the program");
+
+    run_step.dependOn(&run_cmd.step);
 }

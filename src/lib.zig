@@ -5,6 +5,7 @@ pub const App = struct {
     description: []const u8,
     commandList: std.StringHashMap(*const fn () void),
 
+    // Initializes your app
     pub fn init(name: []const u8, description: []const u8, allocator: std.mem.Allocator) App {
         return .{
             .name = name,
