@@ -4,7 +4,7 @@
 
 ## Usage ⚙️
 
-Check out the main.zig in src/  
+Check out the main file!
 
 
 # Status 🧪
