@@ -10,7 +10,10 @@ Check out the main file!
 
 1º Create a zig project and nav to it
 
-2º Go to the release page and copy the url of the package. Example: ``` <somethingsomethingVx>.zip ````
+2º Go to the release page and copy the url of the package. Example: 
+```md
+<somethingsomethingVx>.zip 
+````
 
 3º Do ```zig fetch --save <url>```
 
